@@ -61,10 +61,10 @@ class BotSupervisor:
         logger.info("Verificando dependencias...")
         
         required_files = [
-            'trading_bot.py',
-            'ml_model.py',
-            'data_collector.py',
-            'risk_manager.py',
+            'scripts/trading_bot.py',
+            'src/auto_py_bot/ml_model.py',
+            'src/auto_py_bot/data_collector.py',
+            'src/auto_py_bot/risk_manager.py',
             'config.json'
         ]
         
@@ -93,7 +93,7 @@ class BotSupervisor:
         
         try:
             self.process = subprocess.Popen(
-                [sys.executable, 'trading_bot.py'],
+                [sys.executable, 'scripts/trading_bot.py'],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
                 universal_newlines=True,

@@ -33,8 +33,7 @@ El bot combina múltiples estrategias que han demostrado funcionar:
 # Todos los archivos deben estar en el mismo directorio
 ls
 # Deberías ver:
-# trading_bot.py, ml_model.py, data_collector.py, risk_manager.py,
-# train_model.py, run_24_7.py, config.json, requirements.txt
+# src/auto_py_bot/*.py, scripts/*.py, config.json, requirements.txt
 ```
 
 ### Paso 2: Instalar dependencias
@@ -61,7 +60,7 @@ Edita `config.json`:
 ### Paso 4: Entrenar el modelo (IMPORTANTE)
 
 ```bash
-python train_model.py
+PYTHONPATH=src python scripts/train_model.py
 ```
 
 Esto descargará 30 días de datos históricos y entrenará el modelo ML.
@@ -71,12 +70,12 @@ Tardará ~10-30 minutos dependiendo de tu hardware.
 
 #### Opción A: Ejecución simple
 ```bash
-python trading_bot.py
+PYTHONPATH=src python scripts/trading_bot.py
 ```
 
 #### Opción B: Ejecución 24/7 con supervisor (RECOMENDADO)
 ```bash
-python run_24_7.py
+PYTHONPATH=src python scripts/run_24_7.py
 ```
 
 El supervisor reiniciará automáticamente el bot si hay algún error.
@@ -192,7 +191,7 @@ Sharpe Ratio: 1.45
 Recomendado cada 7-14 días para adaptarse a nuevas condiciones:
 
 ```bash
-python train_model.py
+PYTHONPATH=src python scripts/train_model.py
 ```
 
 ### Optimizar parámetros
@@ -227,7 +226,7 @@ Para ejecutar 24/7 en un servidor:
 ### Con screen:
 ```bash
 screen -S trading_bot
-python run_24_7.py
+PYTHONPATH=src python scripts/run_24_7.py
 # Presiona Ctrl+A luego D para detach
 ```
 
@@ -277,7 +276,7 @@ sudo systemctl status trading-bot
 - Verifica que la IP esté permitida (whitelist)
 
 ### Error: "Modelo no encontrado"
-- Ejecuta `python train_model.py` primero
+- Ejecuta `PYTHONPATH=src python scripts/train_model.py` primero
 
 ### Bot no ejecuta trades
 - Verifica que `paper_trading` esté configurado correctamente
@@ -325,3 +324,26 @@ Este bot es para fines educativos. El trading de criptomonedas es altamente ries
 **¿Preguntas?** Revisa los logs en `trading_bot.log` primero.
 
 **¡Happy Trading! 🚀**
+
+
+## 🗂️ Nueva Estructura Profesional
+
+```text
+auto_py_bot/
+├── src/auto_py_bot/   # Código fuente principal
+├── scripts/           # Puntos de entrada ejecutables
+├── docs/              # Documentación técnica
+├── tests/             # Pruebas automatizadas
+├── deploy/            # Archivos de despliegue
+├── config.json
+├── requirements.txt
+└── Makefile
+```
+
+Comandos recomendados:
+
+```bash
+make test
+make run
+make supervise
+```

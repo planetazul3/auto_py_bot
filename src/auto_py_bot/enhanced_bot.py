@@ -7,12 +7,12 @@ import json
 import sys
 from pathlib import Path
 
-from ml_model import TradingModel, FeatureEngineer
-from data_collector import DataCollector, MarketAnalyzer, SignalGenerator
-from risk_manager import RiskManager, PerformanceTracker
-from telegram_notifier import TelegramNotifier
-from sol_strategies import StrategyEnsemble, SOL_OPTIMAL_CONFIG
-from trading_database import TradingDatabase
+from .ml_model import TradingModel, FeatureEngineer
+from .data_collector import DataCollector, MarketAnalyzer, SignalGenerator
+from .risk_manager import RiskManager, PerformanceTracker
+from .telegram_notifier import TelegramNotifier
+from .sol_strategies import StrategyEnsemble, SOL_OPTIMAL_CONFIG
+from .trading_database import TradingDatabase
 
 logging.basicConfig(
     level=logging.INFO,

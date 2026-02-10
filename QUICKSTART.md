@@ -20,7 +20,7 @@ pip install torch numpy pandas scikit-learn ccxt tqdm matplotlib
 **CRÍTICO**: El bot necesita un modelo entrenado para funcionar.
 
 ```bash
-python train_model.py
+PYTHONPATH=src python scripts/train_model.py
 ```
 
 Esto descargará datos de SOL y entrenará el modelo. Ve por un café ☕
@@ -29,17 +29,17 @@ Esto descargará datos de SOL y entrenará el modelo. Ve por un café ☕
 
 **Versión básica** (sin extras):
 ```bash
-python trading_bot.py
+PYTHONPATH=src python scripts/trading_bot.py
 ```
 
 **Versión mejorada** (recomendada):
 ```bash
-python enhanced_bot.py
+PYTHONPATH=src python scripts/enhanced_bot.py
 ```
 
 **Versión 24/7** (con supervisor):
 ```bash
-python run_24_7.py
+PYTHONPATH=src python scripts/run_24_7.py
 ```
 
 ## 🎯 ¿Qué Versión Usar?
@@ -101,17 +101,17 @@ tail -f trading_bot.log
 
 ### Verificar salud del sistema:
 ```bash
-python utils.py health
+PYTHONPATH=src python scripts/utils.py health
 ```
 
 ### Ver estadísticas rápidas:
 ```bash
-python utils.py stats
+PYTHONPATH=src python scripts/utils.py stats
 ```
 
 ### Hacer backtesting:
 ```bash
-python backtest.py
+PYTHONPATH=src python scripts/backtest.py
 ```
 
 ## 🆘 Solución Rápida de Problemas
@@ -127,11 +127,11 @@ pip install torch --break-system-packages
 
 ### "trading_model.pth not found"
 ```bash
-python train_model.py
+PYTHONPATH=src python scripts/train_model.py
 ```
 
 ### El bot no hace trades
-- ¿Entrenaste el modelo? → `python train_model.py`
+- ¿Entrenaste el modelo? → `PYTHONPATH=src python scripts/train_model.py`
 - ¿Está en paper trading? → Normal, es simulado
 - ¿Hay suficiente capital? → Mínimo $5 en config
 
@@ -186,7 +186,7 @@ Una vez que el bot esté funcionando:
 **¿Listo? ¡Ejecuta el bot!**
 
 ```bash
-python enhanced_bot.py
+PYTHONPATH=src python scripts/enhanced_bot.py
 ```
 
 **¡Buena suerte! 🚀**
