@@ -1,0 +1,60 @@
+{
+    "exchange": "binance",
+    "symbol": "SOL/USDT",
+    "timeframe": "5m",
+    "initial_capital": 10.0,
+    "max_position_size": 0.90,
+    "max_daily_loss": 0.15,
+    "max_drawdown": 0.30,
+    "stop_loss_pct": 0.025,
+    "take_profit_pct": 0.055,
+    "update_interval": 45,
+    "paper_trading": true,
+    "api_key": null,
+    "api_secret": null,
+    
+    "use_telegram": false,
+    "telegram_bot_token": null,
+    "telegram_chat_id": null,
+    
+    "use_database": true,
+    "database_path": "trading_history.db",
+    
+    "use_sol_strategies": true,
+    "use_ensemble": true,
+    "strategy_weights": {
+        "momentum_breakout": 0.30,
+        "volume_surge": 0.25,
+        "bollinger_squeeze": 0.15,
+        "support_resistance": 0.20,
+        "trend_following": 0.10
+    },
+    
+    "send_daily_summary": true,
+    "daily_summary_time": "23:00",
+    
+    "_comments": {
+        "exchange": "Exchange a usar (binance, kraken, coinbase, etc)",
+        "symbol": "Par de trading",
+        "timeframe": "Timeframe de velas (1m, 5m, 15m, 1h, etc)",
+        "initial_capital": "Capital inicial en USDT",
+        "max_position_size": "Porcentaje máximo del capital por trade (0.90 = 90%)",
+        "max_daily_loss": "Pérdida máxima diaria permitida (0.15 = 15%)",
+        "max_drawdown": "Drawdown máximo permitido (0.30 = 30%)",
+        "stop_loss_pct": "Porcentaje de stop loss (0.025 = 2.5%)",
+        "take_profit_pct": "Porcentaje de take profit (0.055 = 5.5%)",
+        "update_interval": "Segundos entre cada actualización (45s recomendado para SOL)",
+        "paper_trading": "true para simulado, false para trading real",
+        "api_key": "Tu API key del exchange (solo para trading real)",
+        "api_secret": "Tu API secret del exchange (solo para trading real)",
+        "use_telegram": "Activar notificaciones de Telegram",
+        "telegram_bot_token": "Token del bot de Telegram (ver telegram_notifier.py)",
+        "telegram_chat_id": "Tu chat ID de Telegram",
+        "use_database": "Guardar histórico en base de datos SQLite",
+        "use_sol_strategies": "Usar estrategias específicas optimizadas para SOL",
+        "use_ensemble": "Combinar múltiples estrategias con pesos",
+        "strategy_weights": "Pesos de cada estrategia en el ensemble",
+        "send_daily_summary": "Enviar resumen diario por Telegram",
+        "daily_summary_time": "Hora para enviar resumen diario (formato 24h)"
+    }
+}

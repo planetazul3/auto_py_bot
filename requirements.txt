@@ -1,0 +1,22 @@
+# PyTorch y ML
+torch>=2.0.0
+numpy>=1.24.0
+scikit-learn>=1.3.0
+
+# Trading y exchanges
+ccxt>=4.0.0
+pandas>=2.0.0
+
+# Notificaciones
+requests>=2.31.0
+
+# Utilidades
+tqdm>=4.65.0
+python-dateutil>=2.8.2
+
+# Opcional para gráficos
+matplotlib>=3.7.0
+seaborn>=0.12.0
+
+# System utilities
+psutil>=5.9.0
