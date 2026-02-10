@@ -7,8 +7,8 @@ import logging
 from tqdm import tqdm
 import pickle
 
-from ml_model import TradingModel, FeatureEngineer
-from data_collector import DataCollector
+from .ml_model import TradingModel, FeatureEngineer
+from .data_collector import DataCollector
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

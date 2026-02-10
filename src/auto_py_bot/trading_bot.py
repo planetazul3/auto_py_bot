@@ -7,9 +7,9 @@ import json
 import sys
 from pathlib import Path
 
-from ml_model import TradingModel, FeatureEngineer
-from data_collector import DataCollector, MarketAnalyzer, SignalGenerator
-from risk_manager import RiskManager, PerformanceTracker
+from .ml_model import TradingModel, FeatureEngineer
+from .data_collector import DataCollector, MarketAnalyzer, SignalGenerator
+from .risk_manager import RiskManager, PerformanceTracker
 
 logging.basicConfig(
     level=logging.INFO,

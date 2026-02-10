@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  auto-py-bot:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: auto-py-bot
+    restart: unless-stopped
+    environment:
+      - PYTHONPATH=/app/src
+    volumes:
+      - ../config.json:/app/config.json:ro
+      - ../logs:/app/logs

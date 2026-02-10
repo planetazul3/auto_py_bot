@@ -1,0 +1,14 @@
+[Unit]
+Description=Auto Py Bot Supervisor
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/auto_py_bot
+Environment=PYTHONPATH=/opt/auto_py_bot/src
+ExecStart=/usr/bin/python3 /opt/auto_py_bot/scripts/run_24_7.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

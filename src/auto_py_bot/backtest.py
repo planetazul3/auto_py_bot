@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 from datetime import datetime
 import logging
 
-from ml_model import TradingModel, FeatureEngineer
-from data_collector import DataCollector, MarketAnalyzer, SignalGenerator
-from risk_manager import RiskManager
+from .ml_model import TradingModel, FeatureEngineer
+from .data_collector import DataCollector, MarketAnalyzer, SignalGenerator
+from .risk_manager import RiskManager
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
