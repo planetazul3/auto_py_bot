@@ -7,12 +7,13 @@ Esta guía te llevará de 0 a tener el bot funcionando en **5 minutos**.
 ### 1. Instalar Dependencias (1 minuto)
 
 ```bash
-pip install -r requirements.txt
+poetry install
 ```
 
-Si da error, instala uno por uno:
+Si da error de resolución, actualiza el lockfile:
 ```bash
-pip install torch numpy pandas scikit-learn ccxt tqdm matplotlib
+poetry lock
+poetry install
 ```
 
 ### 2. Entrenar el Modelo (3-10 minutos)
@@ -20,7 +21,7 @@ pip install torch numpy pandas scikit-learn ccxt tqdm matplotlib
 **CRÍTICO**: El bot necesita un modelo entrenado para funcionar.
 
 ```bash
-PYTHONPATH=src python scripts/train_model.py
+poetry run python scripts/train_model.py
 ```
 
 Esto descargará datos de SOL y entrenará el modelo. Ve por un café ☕
@@ -29,17 +30,17 @@ Esto descargará datos de SOL y entrenará el modelo. Ve por un café ☕
 
 **Versión básica** (sin extras):
 ```bash
-PYTHONPATH=src python scripts/trading_bot.py
+poetry run python scripts/trading_bot.py
 ```
 
 **Versión mejorada** (recomendada):
 ```bash
-PYTHONPATH=src python scripts/enhanced_bot.py
+poetry run python scripts/enhanced_bot.py
 ```
 
 **Versión 24/7** (con supervisor):
 ```bash
-PYTHONPATH=src python scripts/run_24_7.py
+poetry run python scripts/run_24_7.py
 ```
 
 ## 🎯 ¿Qué Versión Usar?
@@ -101,24 +102,25 @@ tail -f trading_bot.log
 
 ### Verificar salud del sistema:
 ```bash
-PYTHONPATH=src python scripts/utils.py health
+poetry run python scripts/utils.py health
 ```
 
 ### Ver estadísticas rápidas:
 ```bash
-PYTHONPATH=src python scripts/utils.py stats
+poetry run python scripts/utils.py stats
 ```
 
 ### Hacer backtesting:
 ```bash
-PYTHONPATH=src python scripts/backtest.py
+poetry run python scripts/backtest.py
 ```
 
 ## 🆘 Solución Rápida de Problemas
 
 ### "ModuleNotFoundError: No module named 'torch'"
 ```bash
-pip install torch --break-system-packages
+poetry add torch
+poetry install
 ```
 
 ### "Error descargando datos"
@@ -127,11 +129,11 @@ pip install torch --break-system-packages
 
 ### "trading_model.pth not found"
 ```bash
-PYTHONPATH=src python scripts/train_model.py
+poetry run python scripts/train_model.py
 ```
 
 ### El bot no hace trades
-- ¿Entrenaste el modelo? → `PYTHONPATH=src python scripts/train_model.py`
+- ¿Entrenaste el modelo? → `poetry run python scripts/train_model.py`
 - ¿Está en paper trading? → Normal, es simulado
 - ¿Hay suficiente capital? → Mínimo $5 en config
 
@@ -186,7 +188,7 @@ Una vez que el bot esté funcionando:
 **¿Listo? ¡Ejecuta el bot!**
 
 ```bash
-PYTHONPATH=src python scripts/enhanced_bot.py
+poetry run python scripts/enhanced_bot.py
 ```
 
 **¡Buena suerte! 🚀**

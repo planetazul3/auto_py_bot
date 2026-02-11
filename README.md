@@ -24,7 +24,7 @@ El bot combina múltiples estrategias que han demostrado funcionar:
 ## 🚀 Instalación Rápida
 
 ### Requisitos
-- Python 3.8+
+- Python 3.11+
 - GPU (opcional, mejora velocidad)
 
 ### Paso 1: Clonar/Descargar archivos
@@ -33,13 +33,13 @@ El bot combina múltiples estrategias que han demostrado funcionar:
 # Todos los archivos deben estar en el mismo directorio
 ls
 # Deberías ver:
-# src/auto_py_bot/*.py, scripts/*.py, config.json, requirements.txt
+# src/auto_py_bot/*.py, scripts/*.py, config.json, pyproject.toml, poetry.lock
 ```
 
 ### Paso 2: Instalar dependencias
 
 ```bash
-pip install -r requirements.txt
+poetry install
 ```
 
 ### Paso 3: Configurar el bot
@@ -60,7 +60,7 @@ Edita `config.json`:
 ### Paso 4: Entrenar el modelo (IMPORTANTE)
 
 ```bash
-PYTHONPATH=src python scripts/train_model.py
+poetry run python scripts/train_model.py
 ```
 
 Esto descargará 30 días de datos históricos y entrenará el modelo ML.
@@ -70,12 +70,12 @@ Tardará ~10-30 minutos dependiendo de tu hardware.
 
 #### Opción A: Ejecución simple
 ```bash
-PYTHONPATH=src python scripts/trading_bot.py
+poetry run python scripts/trading_bot.py
 ```
 
 #### Opción B: Ejecución 24/7 con supervisor (RECOMENDADO)
 ```bash
-PYTHONPATH=src python scripts/run_24_7.py
+poetry run python scripts/run_24_7.py
 ```
 
 El supervisor reiniciará automáticamente el bot si hay algún error.
@@ -191,7 +191,7 @@ Sharpe Ratio: 1.45
 Recomendado cada 7-14 días para adaptarse a nuevas condiciones:
 
 ```bash
-PYTHONPATH=src python scripts/train_model.py
+poetry run python scripts/train_model.py
 ```
 
 ### Optimizar parámetros
@@ -226,7 +226,7 @@ Para ejecutar 24/7 en un servidor:
 ### Con screen:
 ```bash
 screen -S trading_bot
-PYTHONPATH=src python scripts/run_24_7.py
+poetry run python scripts/run_24_7.py
 # Presiona Ctrl+A luego D para detach
 ```
 
@@ -276,7 +276,7 @@ sudo systemctl status trading-bot
 - Verifica que la IP esté permitida (whitelist)
 
 ### Error: "Modelo no encontrado"
-- Ejecuta `PYTHONPATH=src python scripts/train_model.py` primero
+- Ejecuta `poetry run python scripts/train_model.py` primero
 
 ### Bot no ejecuta trades
 - Verifica que `paper_trading` esté configurado correctamente
@@ -336,7 +336,8 @@ auto_py_bot/
 ├── tests/             # Pruebas automatizadas
 ├── deploy/            # Archivos de despliegue
 ├── config.json
-├── requirements.txt
+├── pyproject.toml
+├── poetry.lock
 └── Makefile
 ```
 

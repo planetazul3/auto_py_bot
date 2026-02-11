@@ -11,7 +11,8 @@ auto_py_bot/
 ├── deploy/                 # Orquestación de despliegue (Docker/systemd)
 ├── .github/workflows/      # CI
 ├── config.json             # Configuración runtime
-├── requirements.txt        # Dependencias Python
+├── pyproject.toml          # Dependencias y metadata (Poetry)
+├── poetry.lock             # Lockfile reproducible
 └── Makefile                # Tareas estándar
 ```
 

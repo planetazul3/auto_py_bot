@@ -12,8 +12,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.13'
+      - name: Install Poetry
+        run: python -m pip install poetry
       - name: Install deps
-        run: pip install -r requirements.txt
+        run: POETRY_VIRTUALENVS_IN_PROJECT=true poetry install --no-interaction --sync
       - name: Run tests
-        run: PYTHONPATH=src python -m unittest discover -s tests -p 'test_*.py' -v
+        run: PYTHONPATH=src POETRY_VIRTUALENVS_IN_PROJECT=true poetry run python -m unittest discover -s tests -p 'test_*.py' -v

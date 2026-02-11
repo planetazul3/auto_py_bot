@@ -1,9 +1,14 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
+ENV POETRY_VERSION=2.3.2 \
+    POETRY_NO_INTERACTION=1 \
+    POETRY_VIRTUALENVS_CREATE=false
+
+COPY pyproject.toml poetry.lock ./
+RUN pip install --no-cache-dir "poetry==${POETRY_VERSION}" && \
+    poetry install --only main --no-root --sync
 
 COPY src ./src
 COPY scripts ./scripts
